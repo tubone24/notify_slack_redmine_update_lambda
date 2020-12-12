@@ -3,7 +3,7 @@ variable "account_id" {}
 variable "region" {}
 variable "profile_name" {}
 
-variable "shift_status_table" {
+variable "last_updated_db" {
   type = "map"
   default = {
     read_capacity = ""

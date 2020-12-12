@@ -1,8 +1,8 @@
 locals {
   nat_private_subnets = data.terraform_remote_state.network.nat_private_subnets
   subnet_ids = [
-    "${local.nat_private_subnets["${local.base_name}-routing-le-connector-nat-private-subnets-a"]}",
-    "${local.nat_private_subnets["${local.base_name}-routing-le-connector-nat-private-subnets-c"]}"
+    local.nat_private_subnets["redmine-private-subnet-1a"],
+    local.nat_private_subnets["redmine-private-subnet-1c"]
   ]
   security_group = merge(
     var.security_group,

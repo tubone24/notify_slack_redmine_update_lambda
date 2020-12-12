@@ -1,6 +1,6 @@
 locals {
-  shift_status_table = merge(
-    var.shift_status_table,
+  last_updated_db = merge(
+    var.last_updated_db,
     map("name", "redmine_last_update"),
     map("hash_key", "project_id"),
     map("attribute_name", "project_id"),
@@ -8,7 +8,7 @@ locals {
   )
 }
 
-module "shift_status_table" {
+module "last_updated_db" {
   source = "../../modules/dynamodb"
-  dynamodb_table = "${local.shift_status_table}"
+  dynamodb_table = local.shift_status_table
 }
